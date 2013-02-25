@@ -33,6 +33,10 @@ If you run it, it will display the contents of the mobile provision file:
 
     $ python mobile_provision.py app.mobileprovision
 
+or
+your can try 'uuid' to get uuid in mobileprovision file
+    $ python mobile_provision.py app.mobileprovision uuid
+
 [mobile provision]: http://developer.apple.com/iphone/library/documentation/Xcode/Conceptual/iphone_development/128-Managing_Devices/devices.html
 
 update_strings.py

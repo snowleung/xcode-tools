@@ -96,6 +96,17 @@ def main():
         logging.error(exc)
         return 2
 
+    if len(sys.argv) > 2:
+        if not sys.argv[2].islower():
+            logging.warning("warning:key argurment should be lower, %s -> %s",sys.argv[2], sys.argv[2].lower())
+        pl_dict_key = sys.argv[2].lower()
+        try:
+            print '%s: %s' % (pl_dict_key, getattr(mobile_provision,pl_dict_key))
+        except AttributeError:
+            logging.error('"%s" key not in your mobile provision file! \ntry this key:\n %s', pl_dict_key, 
+                          [att for att in dir(mobile_provision) if str(att).find('__') == -1])
+        return 0
+
     logging.debug('Name: %s', mobile_provision)
     logging.debug('UUID: %s', mobile_provision.uuid)
     logging.debug(
